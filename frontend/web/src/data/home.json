@@ -1,0 +1,20 @@
+[
+  {
+    "path": "user/list",
+    "name": "用户管理",
+    "class": "user-admin",
+    "component": "user-list"
+  },
+  {
+    "path": "tag/list",
+    "name": "标签管理",
+    "class": "tag-admin",
+    "component": "tag-list"
+  },
+  {
+    "path": "article/list",
+    "name": "文章管理",
+    "class": "article-admin",
+    "component": "article-list"
+  }
+]
