@@ -23,10 +23,9 @@
       height: .4rem;
       width: .6rem;
       font-size: .2rem;
-      background: #448372;
-      border-left: 0.02rem solid gray;
-      border-radius: 0.03rem;
-      margin-right: 0.02rem;
+      background: #87CEEB;
+      border-left: 0.01rem solid gray;
+      border-radius: 0.02rem;
     }
   }
   
