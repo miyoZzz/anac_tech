@@ -9,10 +9,12 @@
 
 <script>
 import ArticleList from '../components/article/List'
+import ArticleAdd from '../components/article/Add'
 export default {
   name: 'AcMain',
   components: {
-    ArticleList
+    ArticleList,
+    ArticleAdd
   },
   data(){
     return {

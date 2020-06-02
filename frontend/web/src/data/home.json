@@ -16,5 +16,11 @@
     "name": "文章管理",
     "class": "article-admin",
     "component": "article-list"
+  },
+  {
+    "path": "article/add",
+    "name": "新增文章",
+    "class": "article-add",
+    "component": "article-add"
   }
 ]

@@ -1,6 +1,8 @@
 <template>
   <div id="atlist-container">
-    <div class="other-content"></div>
+    <div class="other-content">
+      <button class="article-add">新增文章</button>
+    </div>
     <div class="article-list">
       <div v-for="(item, index) in articleData" :key="index" class="list-item">
         <span class="article-title">{{ item.id }}.  {{ item.title }}</span>
@@ -32,7 +34,21 @@ export default {
     width: 10rem;
     // border: 1px solid black;
     .other-content {
-      border: 1px solid red;
+      // border: 1px solid red;
+      display: grid;
+      .article-add {
+        width: 1.2rem;
+        height: .4rem;
+        justify-self: end;
+        align-self: end;
+        font-size: .2rem;
+        font-weight: bold;
+        color: green;
+        background: #87CEEB;
+        border: 0.02rem dashed #4F943B;
+        border-radius: 0.02rem;
+        line-height: .4rem;
+      }
     }
     .article-list {
       display: grid;

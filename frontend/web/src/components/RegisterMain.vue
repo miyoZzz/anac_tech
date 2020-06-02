@@ -33,7 +33,6 @@ export default {
   display: grid;
   grid-area: register-main;
   grid-template-rows: 1.5rem auto;
-  // border: 1px solid red;
   place-self: center;
   width: 8rem;
   height: 12.13rem;
