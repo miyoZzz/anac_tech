@@ -3,20 +3,20 @@
     <div class="other-info"></div>
     <div class="reg-content">
       <span>注册</span>
-      <input class="input-username" type="text" placeholder="昵称">
-      <input class="input-password" type="password" placeholder="密码由6-12数字、字母、符号组成">
-      <input class="input-mobile" type="text" placeholder="手机号码">
+      <input class="input-username" type="text" placeholder="昵称" v-model="nickname">
+      <input class="input-password" type="password" placeholder="密码由6-12数字、字母、符号组成" v-model="password">
+      <input class="input-mobile" type="text" placeholder="手机号码" v-model="mobile">
       <div class="mobile-sms">
-        <input type="text" class="input-sms" placeholder="手机验证码">
-        <button class="get-sms">点击获取</button>
+        <input type="text" class="input-sms" placeholder="手机验证码" v-model="smsCode">
+        <button class="get-sms" @click="getSms">点击获取</button>
       </div>
       <div class="agreement">
-        <input type="radio" name="" id="" class="check-agreement">
+        <input type="radio" value="true" class="check-agreement" v-model="is_agreement">
         <span class="agreement-content">
           <a href="http://">我已同意《anac使用协议》和《anac隐私协议》</a>
         </span>
       </div>
-      <button class="register-button">注册</button>
+      <button class="register-button" @click="register">注册</button>
       <router-link to="login" class="jump-login">已有账号，去登录>></router-link>
     </div>
   </div>
@@ -24,7 +24,49 @@
 
 <script>
 export default {
-  name: 'RegisterMain'
+  name: 'RegisterMain',
+  data(){
+    return {
+      // 数据初始化
+      // userinfo: {
+        nickname: '',
+        password: '',
+        mobile: '',
+        smsCode: '',
+      // },
+      is_agreement: false
+    }
+  },
+  methods: {
+    register(){
+      // 双向绑定的数据
+      const userinfo = {
+        nickname: this.nickname,
+        password: this.password,
+        mobile: this.mobile,
+        smsCode: this.smsCode
+      }
+      // 请求接口
+      const token = this.$api.auth.register(userinfo)
+      console.log(token)
+      // console.log(this.is_agreement)
+    },
+    getSms(){
+      const params = {
+        type: 'register',
+        mobile: '13438036663'
+      }
+      const  smsCode = this.$api.auth.getSms(params)
+      console.log(smsCode)
+    }
+  },
+  // mounted: {
+  //   // this.getSms();
+  //   // getSms(){
+  //   //   const  smsCode = this.$api.auth.getSms()
+  //   //   console.log(smsCode)
+  //   // }
+  // }
 }
 </script>
 

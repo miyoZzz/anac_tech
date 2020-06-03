@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import './plugins/axios'
+import axios from 'axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -9,11 +9,11 @@ import 'mavon-editor/dist/css/index.css'
 import './styles/reset.css'
 import './styles/border.css'
 import './tools/rem'
-import './plugins/vant.js'
 
 Vue.config.productionTip = false
 Vue.use(mavonEditor)
 Vue.prototype.$api = api
+Vue.prototype.$axios = axios
 
 new Vue({
   router,

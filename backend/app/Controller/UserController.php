@@ -11,7 +11,7 @@ use Hyperf\HttpServer\Annotation\AutoController;
 /**
  * Class UserController
  * @package App\Controller
- * @AutoController()
+ *
  */
 class UserController
 {

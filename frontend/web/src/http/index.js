@@ -6,7 +6,7 @@ import { Toast } from 'vant'
 import config_ from './config'
 import QS from 'qs'
 
-// 提示弹出层
+// // 提示弹出层
 const tip = msg => {
   Toast({
     message: msg,
@@ -27,14 +27,13 @@ const toLogin = () => {
 
 // 请求失败时的处理
 const errorHandle = (response) => {
-  console.log(response)
   let status = response.status
   let res = response.data
   switch (status) {
     // 未登录状态
     case 405:
       toLogin()
-      break
+      break;
     // 登录过期
     case 403:
       tip('登录过期，请重新登录')
@@ -43,22 +42,39 @@ const errorHandle = (response) => {
       setTimeout(() =>{
         toLogin()
       },1000)
-      break
+      break;
     case 404:
       tip('请求资源不存在')
-      break
+      break;
     default:
       console.log(res.message)
   }
 }
 
 // 创建axios实例
+const headers = {
+  'Authorization': localStorage.getItem('token') || '',
+  'Content-Type': 'application/json;charset=utf-8'
+}
 let instance = axios.create({
-  timeout: config_.timeout
+  timeout: config_.timeout,
+  baseURL: config_.devHost,
+  headers: headers
 })
+// axios.create({
+//   baseURL: 'https://some-domain.com/api/',
+//   timeout: 1000,
+//   headers: {'X-Custom-Header': 'foobar'}
+// });
 
 instance.defaults.baseURL = config_.devHost
-instance.defaults.headers.post['Content-Type'] = config_.content_type
+axios.defaults.baseURL = config_.devHost
+// instance.defaults.headers.Authorization = localStorage.getItem('token') || '';
+// console.log(instance)
+
+// instance.defaults.headers.post['Content-Type'] = config_.content_type
+// instance.defaults.headers.common['Authorization'] = localStorage.getItem('token') || '';
+// instance.headers.
 // 请求拦截
 instance.interceptors.request.use(
   config => {
@@ -88,15 +104,14 @@ instance.interceptors.response.use(
   }
 )
 
-const DEFAULT_DATA = config_.default_data
+const DEFAULT_DATA = config_.DEFAULT_DATA
 const Request = {
-  get(url, data, options){
+  get(url, data){
     let params = {...DEFAULT_DATA, ...data}
-    return instance.get(`${url}?${QS.stringify(params)}`, {options})
+    return instance.get(`${url}?${QS.stringify(params)}`)
   },
-  post(url, data, options) {
-    instance.defaults.headers.common['Authorization'] = localStorage.getItem('token') || '';
-    return instance.post(url, {...DEFAULT_DATA, ...data}, {options})
+  post(url, data) {
+    return instance.post(url, JSON.stringify({...DEFAULT_DATA, ...data}))
   }
 }
 export default Request

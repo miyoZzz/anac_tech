@@ -3,7 +3,7 @@ const config = {
   devHost: 'https://api.tellmegoal.com',
   host: 'https://api.anac.tech',
   timeout: 10000,
-  content_type: 'application/x-www-form-urlencoded;charset=UTF-8',
+  content_type: 'application/json;charset=utf-8',
   default_data: {}
 }
 

@@ -22,8 +22,18 @@ export default {
         mobile: '13438036663',
         password: "ssxhyw2515"
       }
-      let res = this.$api.user.userAdd(userinfo)
-      console.log(res)
+      console.log(userinfo)
+      console.log(1)
+      // this.$axios
+      this.$api.user.userAdd({})
+      // this.$axios({
+      //   method: 'post',
+      //   url: 'https://api.tellmegoal.com/user/add',
+      //   headers: {
+      //     // 'Content-Type': 'application/json;charset=utf-8',
+      //     // 'Authorization': 'xxx'
+      //   }
+      // })
     }
   }
   // data(){
