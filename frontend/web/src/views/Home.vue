@@ -8,6 +8,8 @@
   </div>
 </template>
 <style lang="scss" scoped>
+//#F35B83
+//#3EABE8
   #home-container {
     display: grid;
     grid-template-rows:  0.6rem 0.6rem 12.13rem 0.6rem;

@@ -3,7 +3,7 @@
     <div class="add-content">
       <mavon-editor  style="height:10rem;" v-model="value"/>
     </div>
-    <button class="add-save">提交新增</button>
+    <button class="add-save" @click="testHttp">提交新增</button>
   </div>
 </template>
 
@@ -13,6 +13,17 @@ export default {
   data() {
     return {
       value: ""
+    }
+  },
+  methods: {
+    testHttp(){
+      let userinfo = {
+        nickname: 'ccc',
+        mobile: '13438036663',
+        password: "ssxhyw2515"
+      }
+      let res = this.$api.user.userAdd(userinfo)
+      console.log(res)
     }
   }
   // data(){
