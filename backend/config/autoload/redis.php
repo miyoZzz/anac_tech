@@ -15,7 +15,7 @@ return [
         'host' => env('REDIS_HOST', '47.96.0.31'),
         'auth' => env('REDIS_AUTH', 'ssxhyw2515'),
         'port' => (int) env('REDIS_PORT', 6379),
-        'db' => (int) env('REDIS_DB', 0),
+        'db' => (int) env('REDIS_DB', 2),
         'pool' => [
             'min_connections' => 1,
             'max_connections' => 10,

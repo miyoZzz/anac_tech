@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\Redis\Redis;
+use Hyperf\Utils\ApplicationContext;
 
 /**
  * Class AuthController
@@ -21,6 +23,17 @@ class AuthController {
     public function register(RequestInterface $request): string
     {
         $user = $request->all();
+//        var_dump(env('REDIS_AUTH'));
+
+
+        $container = ApplicationContext::getContainer();
+
+        $redis = $container->get(Redis::class);
+        $aa = $redis->set('ccc','bbb');
+
+//        $redis
+//        var_dump($redis);
+        return $redis->get('ccc');
         // 写入 redis
         return md5('miyofei');
 //        return $request->all();
@@ -33,6 +46,7 @@ class AuthController {
      */
     public function getSms(RequestInterface $request): string
     {
+
         // TODO 实际获取短信逻辑
         $data  = $request->all();
         if($data['type'] && $data['mobile']) {

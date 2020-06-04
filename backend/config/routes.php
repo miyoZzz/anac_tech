@@ -13,11 +13,11 @@ declare(strict_types=1);
 use Hyperf\HttpServer\Router\Router;
 
 Router::addGroup('/auth/', function (){
-    Router::post('register', 'App\Controller\AuthController@register');
+    Router::addRoute(['POST'],'register', 'App\Controller\AuthController@register');
     Router::post('getSms', 'App\Controller\AuthController@getSms');
 });
 
 Router::addGroup('/user/', function (){
-    Router::addRoute(['POST','OPTIONS'],'add', 'App\Controller\UserController@add');
+    Router::addRoute(['POST','OPTIONS','GET'],'add', 'App\Controller\UserController@add');
 //    Router::post('getSms', 'App\Controller\AuthController@getSms');
 });
