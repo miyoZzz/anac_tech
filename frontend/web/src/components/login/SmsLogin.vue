@@ -35,62 +35,84 @@ export default {
                          "l-5 l-5 l-5 l-6"
                          "l-7 l-7 l-8 l-8";
     // border: 1px solid red;
-    width: 400px;
+    width: 4rem;
+
+     input:nth-child(n){
+      font-size: 0.2rem;
+      border: 0.01rem solid gray;
+      border-radius: 0.02rem;
+    }
+    button:nth-last-child(n):not(:nth-last-child(n+3)) {
+      font-size: 0.2rem;
+      font-weight: bold;
+      border: 0.01rem solid gray;
+      border-radius: 0.02rem;
+      background: #4F943B;
+    }
+
     .label {
       grid-area: l-1;
       justify-self: start;
-      height: 40px;
+      height: 0.4rem;
     }
     .mobile {
       grid-area: l-2;
-      height: 40px;
+      height: 0.4rem;
     }
     .sms {
       grid-area: l-3;
-      height: 40px;
-      margin-right: 1px;
-      margin-top: 20px;
+      height: 0.4rem;
+      margin-right: 0.01rem;
+      margin-top: 0.2rem;
     }
     .get-sms {
       grid-area: l-4;
-      height: 46px;
-      margin-left: 1px;
-      margin-top: 20px;
+
+      height: 0.42rem;
+      font-size: 0.16rem;
+      // font-weight: bold;
+      background: #4F943B;
+      border: 0.01rem solid gray;
+      border-radius: 0.02rem;
+      width: 1.2rem;
+      justify-self: end;
+      margin-left: 0.01rem;
+      margin-top: 0.2rem;
     }
 
     .pass-other {
       grid-area: l-5;
       justify-self: start;
-      height: 20px;
-      margin-top: 10px;
-      font-size: 12px;
+      height: 0.2rem;
+      margin-top: 0.1rem;
+      font-size: 0.12rem;
     }
 
     .err-help {
       grid-area: l-6;
       justify-self: start;
-      height: 20px;
-      margin-top: 10px;
-      font-size: 12px;
+      height: 0.2rem;
+      margin-top: 0.1rem;
+      font-size: 0.12rem;
       // margin-right: 10px;
     }
 
     .login {
       grid-area: l-7;
       justify-self: start;
-      height: 40px;
-      width: 180px;
+      height: 0.4rem;
+      width: 1.8rem;
       // margin-right: 5px;
-      margin-top: 10px;
+      margin-top: 0.1rem;
     }
 
     .register {
       grid-area: l-8;
       justify-self: end;
-      height: 40px;
-      width: 180px;
+      height: 0.4rem;
+      width: 1.8rem;
       // margin-left: 5px;
-      margin-top: 10px;
+      margin-top: 0.1rem;
     }
   }
 </style>

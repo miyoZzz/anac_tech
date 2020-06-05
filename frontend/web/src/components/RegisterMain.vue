@@ -38,7 +38,7 @@ export default {
     }
   },
   methods: {
-    register(){
+     async register(){
       // 双向绑定的数据
       const userinfo = {
         nickname: this.nickname,
@@ -46,10 +46,17 @@ export default {
         mobile: this.mobile,
         smsCode: this.smsCode
       }
-      // 请求接口
-      const token = this.$api.auth.register(userinfo)
-      console.log(token)
-      // console.log(this.is_agreement)
+      const data = await this.$api.auth.register(userinfo)
+      console.log(data)
+      const result = data.data
+      if(result.code == 800){
+        this.$store.commit('set_token',result.token)
+        localStorage.setItem('token', result.token)
+        // console.log(this.$store.state.token)
+        this.$router.push('/')
+      }else{
+        this.$router.replace('/register')
+      }
     },
     getSms(){
       const params = {
@@ -125,7 +132,7 @@ export default {
         height: .42rem;
         width: 1.15rem;
         margin-left: .01rem;
-        background: #87CEEB;
+        background: #4F943B;
         border-radius: 0.02rem;
         border: 0.01rem solid gray;
       }
@@ -146,9 +153,11 @@ export default {
     .register-button {
       margin-top: .1rem;
       height: .42rem;
-      background: #87CEEB;
+      background: #4F943B;
       border: 0.01rem solid gray;
       border-radius: 0.02rem;
+      font-size: 0.2rem;
+      font-weight: bold;
     }
 
     .jump-login {

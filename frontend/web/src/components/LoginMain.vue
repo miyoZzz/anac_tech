@@ -2,20 +2,20 @@
   <div id="lgmain-container">
     <div class="login-aside"></div>
     <div class="login-main">
-      <!-- <pass-login></pass-login> -->
+      <pass-login></pass-login>
       <sms-login></sms-login>
     </div>
   </div>
 </template>
 
 <script>
-// import PassLogin from './login/PassLogin'
-import SmsLogin from './login/SmsLogin'
+import PassLogin from './login/PassLogin'
+// import SmsLogin from './login/SmsLogin'
 export default {
   name: 'LoginMain',
   components: {
-    // PassLogin,
-    SmsLogin
+    PassLogin,
+    // SmsLogin
   }
 }
 </script>
@@ -24,12 +24,12 @@ export default {
 #lgmain-container {
   display: grid;
   grid-area: login-main;
-  height: 600px;
+  height: 6rem;
   grid-template-columns: 1.5fr 2fr;
   .login-aside {
-    height: 500px;
+    height: 5rem;
     align-self: center;
-    border-right: 1px solid gray;
+    border-right: 0.01rem solid gray;
   }
   .login-main {
     display: grid;

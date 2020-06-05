@@ -16,24 +16,14 @@ export default {
     }
   },
   methods: {
-    testHttp(){
+    async testHttp(){
       let userinfo = {
         nickname: 'ccc',
         mobile: '13438036663',
         password: "ssxhyw2515"
       }
-      console.log(userinfo)
-      console.log(1)
-      // this.$axios
-      this.$api.user.userAdd({})
-      // this.$axios({
-      //   method: 'post',
-      //   url: 'https://api.tellmegoal.com/user/add',
-      //   headers: {
-      //     // 'Content-Type': 'application/json;charset=utf-8',
-      //     // 'Authorization': 'xxx'
-      //   }
-      // })
+      const reslut = await this.$api.user.userAdd(userinfo)
+      console.log(reslut.data)
     }
   }
   // data(){
