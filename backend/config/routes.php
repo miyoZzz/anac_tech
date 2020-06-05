@@ -14,6 +14,7 @@ use Hyperf\HttpServer\Router\Router;
 
 Router::addGroup('/auth/', function (){
     Router::addRoute(['POST'],'register', 'App\Controller\AuthController@register');
+    Router::addRoute(['POST'],'login', 'App\Controller\AuthController@login');
     Router::post('getSms', 'App\Controller\AuthController@getSms');
 });
 

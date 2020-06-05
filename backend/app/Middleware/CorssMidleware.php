@@ -17,7 +17,7 @@ class CorssMidleware implements MiddlewareInterface
         $response = $response->withHeader('Access-Control-Allow-Origin', '*')
             ->withHeader('Access-Control-Allow-Credentials', 'true')
             ->withHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
-//            ->withHeader('Access-Control-Max-Age', 0)
+            ->withHeader('Access-Control-Max-Age', 86400)
 //            add_header Access-Control-Max-Age 86400;
             // Headers 可以根据实际情况进行改写。
             ->withHeader('Access-Control-Allow-Headers', 'DNT,Keep-Alive,User-Agent,Cache-Control,Content-Type,Authorization');
