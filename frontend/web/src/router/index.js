@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import Article from '../views/Article.vue'
+import Test from '../views/test/Home.vue'
 
 
 Vue.use(VueRouter)
@@ -29,6 +30,11 @@ Vue.use(VueRouter)
     path: '/article',
     name: 'Article',
     component: Article
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Test
   }
   // {
   //   path: '/about',
